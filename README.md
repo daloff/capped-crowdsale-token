@@ -77,7 +77,7 @@ The guide uses an older version of Solidity (0.4.24), while this program uses a 
 > token.transferOwnership(sale.address)
 > token.addMinter(sale.address)
 
-# check number of available tokens before buying
+ # check number of available tokens before buying
 > sale.getTokensLeft().then(result => result.toNumber())
  # 67500
 
