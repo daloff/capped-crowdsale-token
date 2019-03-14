@@ -64,6 +64,16 @@ The guide uses an older version of Solidity (0.4.24), while this program uses a 
 2. Added method, getTokensLeft(), to report how many tokens are left
 3. Added the needed functionality to not allow more than 1 purchase per account
 
+> Problem answers and solution runthrough
+1) Try to buy tokens with 2.5 ether
+    > This produces an error because 2.5 ether is less then the minimum cap of 5 ether
+2) Buy tokens with 15 ether
+    > This is a success as 15 ether is within the [5 - 50] ether cap range
+3) Return how many tokens are left
+    > There are 60750 tokens left after the previous transactions
+4) Buy tokens (again) with 25 Ether
+    > This produces an error because each account is allowed a maximum of 1 purchase, and this account has already had a purchase made
+
 ```sh
 > truffle compile
 > truffle develop
