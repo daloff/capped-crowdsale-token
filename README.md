@@ -29,36 +29,7 @@ The guide uses an older version of Solidity (0.4.24), while this program uses a 
     * Allows crowdsale's owner to buy tokens
 
 -------
-### Testing transactions from the [tutorial](https://medium.com/crowdbotics/how-to-build-a-simple-capped-crowdsale-token-using-openzeppelin-library-part-1-2789ec642308)
-
-> Note: compilation step may produce some warnings, which are normal, as long as compilation itself is successful
-```sh
-> truffle compile
-> truffle develop
-> migrate --reset
-> let accounts = await web3.eth.getAccounts()
-
-> ExampleToken.new("Example Token", "EXM", 18).then((t) => {token = t;})
-
-> ExampleTokenCrowdsale.new(500, accounts[0], token.address, new web3.utils.BN(web3.utils.toWei('200'))).then((t) => {sale = t;})
-
-> token.transferOwnership(sale.address)
-> token.addMinter(sale.address)
-
-> sale.buyTokens(accounts[1], {value: new web3.utils.BN(web3.utils.toWei('1')), from: accounts[1]})
-# Error: contribution amount must be between 5 and 50 ether
-
-> sale.buyTokens(accounts[1], {value: new web3.utils.BN(web3.utils.toWei('2')), from: accounts[1]})
-# Success
-
-> sale.buyTokens(accounts[1], {value: new web3.utils.BN(web3.utils.toWei('48')), from: accounts[1]})
-# Success
-
-> sale.buyTokens(accounts[1], {value: new web3.utils.BN(web3.utils.toWei('1')), from: accounts[1]})
-# Error: contribution amount must be between 5 and 50 ether
-```
--------
-### Homework
+### Homework Solution
 > Steps completed: 
 1. Changed the minimum contribution to 5 Ether
 2. Added method, getTokensLeft(), to report how many tokens are left
@@ -74,6 +45,7 @@ The guide uses an older version of Solidity (0.4.24), while this program uses a 
 4) Buy tokens (again) with 25 Ether
     > This produces an error because each account is allowed a maximum of 1 purchase, and this account has already had a purchase made
 
+> Note: compilation step may produce some warnings, which are normal, as long as compilation itself is successful
 ```sh
 > truffle compile
 > truffle develop
@@ -102,5 +74,31 @@ The guide uses an older version of Solidity (0.4.24), while this program uses a 
 > sale.buyTokens(accounts[1], {value: new web3.utils.BN(web3.utils.toWei('25')), from: accounts[1]})
 # Error: this account has already made a purchase. Purchase limit is 1
 ```
+-------
+### Testing transactions from the [tutorial](https://medium.com/crowdbotics/how-to-build-a-simple-capped-crowdsale-token-using-openzeppelin-library-part-1-2789ec642308)
+```sh
+> truffle compile
+> truffle develop
+> migrate --reset
+> let accounts = await web3.eth.getAccounts()
 
+> ExampleToken.new("Example Token", "EXM", 18).then((t) => {token = t;})
+
+> ExampleTokenCrowdsale.new(500, accounts[0], token.address, new web3.utils.BN(web3.utils.toWei('200'))).then((t) => {sale = t;})
+
+> token.transferOwnership(sale.address)
+> token.addMinter(sale.address)
+
+> sale.buyTokens(accounts[1], {value: new web3.utils.BN(web3.utils.toWei('1')), from: accounts[1]})
+# Error: contribution amount must be between 5 and 50 ether
+
+> sale.buyTokens(accounts[1], {value: new web3.utils.BN(web3.utils.toWei('2')), from: accounts[1]})
+# Success
+
+> sale.buyTokens(accounts[1], {value: new web3.utils.BN(web3.utils.toWei('48')), from: accounts[1]})
+# Success
+
+> sale.buyTokens(accounts[1], {value: new web3.utils.BN(web3.utils.toWei('1')), from: accounts[1]})
+# Error: contribution amount must be between 5 and 50 ether
+```
 
