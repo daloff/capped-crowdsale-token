@@ -45,11 +45,11 @@ The guide uses an older version of Solidity (0.4.24), while this program uses a 
 4) Buy tokens (again) with 25 Ether
     > This produces an error because each account is allowed a maximum of 1 purchase, and this account has already had a purchase made
 
-> Note: compilation step may produce some warnings, which are normal, as long as compilation itself is successful
 ```sh
 > truffle compile
 > truffle develop
 > migrate --reset
+
 > let accounts = await web3.eth.getAccounts()
 
 > ExampleToken.new("CSC4980 Token", "GSU", 18).then((t) => {token = t;})
