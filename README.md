@@ -26,7 +26,7 @@ The guide uses an older version of Solidity (0.4.24), while this program uses a 
 * *`let accounts = await web3.eth.getAccounts()`*
     * Initializes accounts for later use
 * *`token.addMinter(sale.address)`*
-    * Allow crowdsale's owner to buy tokens
+    * Allows crowdsale's owner to buy tokens
 
 -------
 ### Testing transactions from the [tutorial](https://medium.com/crowdbotics/how-to-build-a-simple-capped-crowdsale-token-using-openzeppelin-library-part-1-2789ec642308)
