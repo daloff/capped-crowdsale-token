@@ -77,9 +77,8 @@ The guide uses an older version of Solidity (0.4.24), while this program uses a 
 > token.transferOwnership(sale.address)
 > token.addMinter(sale.address)
 
- # check number of available tokens before buying
 > sale.getTokensLeft().then(result => result.toNumber())
- # 67500
+ # 67500 -> number of available tokens (before the sale)
 
 > sale.buyTokens(accounts[1], {value: new web3.utils.BN(web3.utils.toWei('2.5')), from: accounts[1]})
 # Error: contribution amount must be between 5 and 50 ether
